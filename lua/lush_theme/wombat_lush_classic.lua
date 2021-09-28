@@ -74,10 +74,10 @@ local theme = lush(function()
     CursorColumn { Cursor }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = c.grey_6}, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     -- Directory    { }, -- directory names (and other special names in listings)
-    DiffAdd      { fg = c.darkgreen.readable(), bg = c.darkgreen }, -- diff mode: Added line |diff.txt|
-    DiffChange   { bg = c.violet }, -- diff mode: Changed line |diff.txt|
-    DiffDelete   { fg = c.darkred.readable(), bg = c.darkred }, -- diff mode: Deleted line |diff.txt|
-    DiffText     { fg = c.magenta.readable(), bg = c.magenta }, -- diff mode: Changed text within a changed line |diff.txt|
+    DiffAdd      { bg = hsl("#2a0d6a") }, -- diff mode: Added line |diff.txt|
+    DiffChange   { bg = hsl("#382a37") }, -- diff mode: Changed line |diff.txt|
+    DiffDelete   { fg = hsl("#242424"), bg = hsl("#3e3969") }, -- diff mode: Deleted line |diff.txt|
+    DiffText     { bg = hsl("#382a37") }, -- diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer  { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
@@ -96,7 +96,7 @@ local theme = lush(function()
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg      { }, -- |more-prompt|
     NonText      { LineNr }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal       {bg = c.dark_bg, fg = c.dark_fg}, -- normal text
+    Normal       {bg = c.dark_bg_256mod, fg = c.dark_fg_256mod}, -- normal text
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- NormalNC     { }, -- normal text in non-current windows
     Pmenu        { fg = c.light_yellow, bg = c.grey_5 }, -- Popup menu: normal item.
@@ -133,19 +133,19 @@ local theme = lush(function()
     String         { fg = c.bright_green, gui = italic }, --   a string constant: "this is a string"
     -- Character      { }, --  a character constant: 'c', '\n'
     Number         { fg = c.orange }, --   a number constant: 234, 0xff
-    Boolean        { fg = c.red }, --  a boolean constant: TRUE, false
-    Float          { Number }, --    a floating point constant: 2.3e10
+    -- Boolean        { }, --  a boolean constant: TRUE, false
+    -- Float          { }, --    a floating point constant: 2.3e10
 
     Identifier     { fg = c.green }, -- (preferred) any variable name
     Function       { fg = c.green }, -- function name (also: methods for classes)
 
-    Statement      { fg = c.purple }, -- (preferred) any statement
-    Conditional    { fg = c.purple }, --  if, then, else, endif, switch, etc.
-    Repeat         { fg = c.purple }, --   for, do, while, etc.
-    Label          { fg = c.magenta }, --    case, default, etc.
-    Operator       { fg = c.magenta }, -- "sizeof", "+", "*", etc.
+    Statement      { fg = c.blue }, -- (preferred) any statement
+    -- Conditional    { }, --  if, then, else, endif, switch, etc.
+    -- Repeat         { }, --   for, do, while, etc.
+    -- Label          { }, --    case, default, etc.
+    -- Operator       { }, -- "sizeof", "+", "*", etc.
     Keyword        { fg = c.blue }, --  any other keyword
-    Exception      { fg = c.orange }, --  try, catch, throw
+    -- Exception      { }, --  try, catch, throw
 
     PreProc        { fg = c.orange }, -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
