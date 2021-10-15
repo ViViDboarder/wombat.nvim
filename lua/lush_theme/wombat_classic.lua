@@ -73,7 +73,7 @@ local theme = lush(function()
     -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn { Cursor }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine   { bg = c.grey_6}, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- Directory    { }, -- directory names (and other special names in listings)
+    Directory    { fg = c.cyan }, -- directory names (and other special names in listings)
     DiffAdd      { bg = hsl("#2a0d6a") }, -- diff mode: Added line |diff.txt|
     DiffChange   { bg = hsl("#382a37") }, -- diff mode: Changed line |diff.txt|
     DiffDelete   { fg = hsl("#242424"), bg = hsl("#3e3969") }, -- diff mode: Deleted line |diff.txt|
@@ -161,7 +161,7 @@ local theme = lush(function()
     Special        { fg = c.yellow }, -- (preferred) any special symbol
     -- SpecialChar    { }, --  special character in a constant
     -- Tag            { }, --    you can use CTRL-] on this
-    -- Delimiter      { }, --  character that needs attention
+    -- Delimiter      { Special }, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
 
