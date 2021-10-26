@@ -141,8 +141,8 @@ local theme = lush.extends({classic}).with(function()
     -- Function       { fg = c.green }, -- function name (also: methods for classes)
 
     -- Statement      { fg = c.purple }, -- (preferred) any statement
-    Conditional    { fg = classic.Statement }, --  if, then, else, endif, switch, etc.
-    Repeat         { fg = classic.Statement }, --   for, do, while, etc.
+    Conditional    { classic.Statement }, --  if, then, else, endif, switch, etc.
+    Repeat         { classic.Statement }, --   for, do, while, etc.
     Label          { fg = c.magenta }, --    case, default, etc.
     Operator       { fg = c.magenta }, -- "sizeof", "+", "*", etc.
     -- Keyword        { fg = c.blue }, --  any other keyword
