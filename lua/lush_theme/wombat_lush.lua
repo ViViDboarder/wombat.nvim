@@ -137,15 +137,15 @@ local theme = lush.extends({classic}).with(function()
     Boolean        { fg = c.red }, --  a boolean constant: TRUE, false
     Float          { classic.Number }, --    a floating point constant: 2.3e10
 
-    -- Identifier     { fg = c.green }, -- (preferred) any variable name
-    -- Function       { fg = c.green }, -- function name (also: methods for classes)
+    -- Identifier     { classic.Identifier }, -- (preferred) any variable name
+    -- Function       { classic.Function }, -- function name (also: methods for classes)
 
     -- Statement      { fg = c.purple }, -- (preferred) any statement
     Conditional    { classic.Statement }, --  if, then, else, endif, switch, etc.
     Repeat         { classic.Statement }, --   for, do, while, etc.
     Label          { fg = c.magenta }, --    case, default, etc.
     Operator       { fg = c.magenta }, -- "sizeof", "+", "*", etc.
-    -- Keyword        { fg = c.blue }, --  any other keyword
+    -- Keyword        { classic.Keyword }, --  any other keyword
     Exception      { fg = c.orange }, --  try, catch, throw
 
     -- PreProc        { fg = c.orange }, -- (preferred) generic Preprocessor
@@ -154,12 +154,12 @@ local theme = lush.extends({classic}).with(function()
     -- Macro          { }, --    same as Define
     -- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
 
-    -- Type           { fg = c.yellow }, -- (preferred) int, long, char, etc.
+    -- Type           { classic.Type }, -- (preferred) int, long, char, etc.
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
 
-    -- Special        { fg = c.yellow }, -- (preferred) any special symbol
+    -- Special        { classic.Special }, -- (preferred) any special symbol
     -- SpecialChar    { }, --  special character in a constant
     -- Tag            { }, --    you can use CTRL-] on this
     Delimiter      { fg = c.purple }, --  character that needs attention
@@ -218,58 +218,74 @@ local theme = lush.extends({classic}).with(function()
     -- TSError -> Error for example, so you do not have to define these unless
     -- you explicitly want to support Treesitter's improved syntax awareness.
 
-    -- TSAnnotation         { };    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSAttribute          { };    -- (unstable) TODO: docs
-    -- TSBoolean            { };    -- For booleans.
-    -- TSCharacter          { };    -- For characters.
-    -- TSComment            { };    -- For comment blocks.
-    -- TSConstructor        { };    -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
-    -- TSConditional        { };    -- For keywords related to conditionnals.
-    -- TSConstant           { };    -- For constants
-    -- TSConstBuiltin       { };    -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro         { };    -- For constants that are defined by macros: `NULL` in C.
-    -- TSError              { };    -- For syntax/parser errors.
-    -- TSException          { };    -- For exception related keywords.
-    -- TSField              { };    -- For fields.
-    -- TSFloat              { };    -- For floats.
-    -- TSFunction           { };    -- For function (calls and definitions).
-    -- TSFuncBuiltin        { };    -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro          { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSInclude            { };    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSKeyword            { };    -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    { };    -- For keywords used to define a fuction.
-    -- TSLabel              { };    -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSMethod             { };    -- For method calls and definitions.
-    -- TSNamespace          { };    -- For identifiers referring to modules and namespaces.
-    -- TSNone               { };    -- TODO: docs
-    -- TSNumber             { };    -- For all numbers
-    -- TSOperator           { };    -- For any operator: `+`, but also `->` and `*` in C.
-    -- TSParameter          { };    -- For parameters of a function.
-    -- TSParameterReference { };    -- For references to parameters of a function.
-    -- TSProperty           { };    -- Same as `TSField`.
-    -- TSPunctDelimiter     { };    -- For delimiters ie: `.`
-    -- TSPunctBracket       { };    -- For brackets and parens.
-    -- TSPunctSpecial       { };    -- For special punctutation that does not fall in the catagories before.
-    -- TSRepeat             { };    -- For keywords related to loops.
-    -- TSString             { };    -- For strings.
-    -- TSStringRegex        { };    -- For regexes.
-    -- TSStringEscape       { };    -- For escape characters within a string.
-    -- TSSymbol             { };    -- For identifiers referring to symbols or atoms.
-    -- TSType               { };    -- For types.
-    -- TSTypeBuiltin        { };    -- For builtin types.
-    -- TSVariable           { };    -- Any variable name that does not have another highlight.
-    -- TSVariableBuiltin    { };    -- Variable names that are defined by the languages, like `this` or `self`.
+    -- TSAnnotation         { },    -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    -- TSAttribute          { },    -- (unstable) TODO: docs
+    -- TSBoolean            { },    -- For booleans.
+    -- TSCharacter          { },    -- For characters.
+    -- TSComment            { },    -- For comment blocks.
+    -- TSConstructor        { },    -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
+    -- TSConditional        { },    -- For keywords related to conditionnals.
+    -- TSConstant           { },    -- For constants
+    -- TSConstBuiltin       { },    -- For constant that are built in the language: `nil` in Lua.
+    -- TSConstMacro         { },    -- For constants that are defined by macros: `NULL` in C.
+    -- TSError              { },    -- For syntax/parser errors.
+    -- TSException          { },    -- For exception related keywords.
+    -- TSField              { },    -- For fields.
+    -- TSFloat              { },    -- For floats.
+    TSFunction           { classic.Function },    -- For function (calls and definitions).
+    -- TSFuncBuiltin        { },    -- For builtin functions: `table.insert` in Lua.
+    -- TSFuncMacro          { },    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    -- TSInclude            { },    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSKeyword            { classic.Keyword },    -- For keywords that don't fall in previous categories.
+    -- TSKeywordFunction    { },    -- For keywords used to define a fuction.
+    -- TSLabel              { },    -- For labels: `label:` in C and `:label:` in Lua.
+    TSMethod             { classic.Function },    -- For method calls and definitions.
+    -- TSNamespace          { },    -- For identifiers referring to modules and namespaces.
+    -- TSNone               { },    -- TODO: docs
+    -- TSNumber             { },    -- For all numbers
+    -- TSOperator           { },    -- For any operator: `+`, but also `->` and `*` in C.
+    -- TSParameter          { },    -- For parameters of a function.
+    -- TSParameterReference { },    -- For references to parameters of a function.
+    TSProperty           { classic.Identifier },    -- Same as `TSField`.
+    -- TSPunctDelimiter     { },    -- For delimiters ie: `.`
+    -- TSPunctBracket       { },    -- For brackets and parens.
+    -- TSPunctSpecial       { },    -- For special punctutation that does not fall in the catagories before.
+    -- TSRepeat             { },    -- For keywords related to loops.
+    -- TSString             { },    -- For strings.
+    -- TSStringRegex        { },    -- For regexes.
+    -- TSStringEscape       { },    -- For escape characters within a string.
+    -- TSSymbol             { },    -- For identifiers referring to symbols or atoms.
+    TSType               { classic.Type },    -- For types.
+    -- TSTypeBuiltin        { },    -- For builtin types.
+    TSVariable           { classic.Special },    -- Any variable name that does not have another highlight.
+    -- TSVariableBuiltin    { },    -- Variable names that are defined by the languages, like `this` or `self`.
 
-    -- TSTag                { };    -- Tags like html tag names.
-    -- TSTagDelimiter       { };    -- Tag delimiter like `<` `>` `/`
-    -- TSText               { };    -- For strings considered text in a markup language.
-    -- TSEmphasis           { };    -- For text to be represented with emphasis.
-    -- TSUnderline          { };    -- For text to be represented with an underline.
-    -- TSStrike             { };    -- For strikethrough text.
-    -- TSTitle              { };    -- Text that is part of a title.
-    -- TSLiteral            { };    -- Literal text.
-    -- TSURI                { };    -- Any URI like a link or email.
+    -- TSTag                { },    -- Tags like html tag names.
+    -- TSTagDelimiter       { },    -- Tag delimiter like `<` `>` `/`
+    TSText               { Normal },    -- For strings considered text in a markup language.
+    -- TSEmphasis           { },    -- For text to be represented with emphasis.
+    -- TSUnderline          { },    -- For text to be represented with an underline.
+    -- TSStrike             { },    -- For strikethrough text.
+    -- TSTitle              { },    -- Text that is part of a title.
+    -- TSLiteral            { },    -- Literal text.
+    -- TSURI                { },    -- Any URI like a link or email.
 
+    -- gray
+    CmpItemAbbrDeprecated   { fg = c.grey, gui = "strikethrough" },
+    -- blue
+    CmpItemAbbrMatch        { fg = c.green },
+    CmpItemAbbrMatchFuzzy   { CmpItemAbbrMatch },
+    -- light blue
+    CmpItemKindVariable     { TSVariable },
+    CmpItemKindInterface    { TSType },
+    CmpItemKindText         { TSText },
+    -- pink
+    CmpItemKindFunction     { TSFunction },
+    CmpItemKindMethod       { TSMethod },
+    -- front
+    CmpItemKindKeyword      { TSKeyword },
+    CmpItemKindProperty     { TSProperty },
+    -- CmpItemKindUnit         { Normal },
   }
 end)
 
