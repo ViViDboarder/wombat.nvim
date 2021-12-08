@@ -262,7 +262,7 @@ local theme = lush.extends({classic}).with(function()
 
     -- TSTag                { },    -- Tags like html tag names.
     -- TSTagDelimiter       { },    -- Tag delimiter like `<` `>` `/`
-    TSText               { Normal },    -- For strings considered text in a markup language.
+    TSText               { fg = Normal.fg },    -- For strings considered text in a markup language.
     -- TSEmphasis           { },    -- For text to be represented with emphasis.
     -- TSUnderline          { },    -- For text to be represented with an underline.
     -- TSStrike             { },    -- For strikethrough text.
