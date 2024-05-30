@@ -17,6 +17,3 @@ lua package.loaded['lush_theme.lush_template'] = nil
 
 " include our theme file and pass it to lush to apply
 lua require('lush')(require('lush_theme.wombat_lush'))
-
-" Workaround for not being able to link from semantic groups to highlight groups in lush
-lua vim.api.nvim_set_hl(0, "@variable", { link = "TSVariable" })
