@@ -1,12 +1,12 @@
 -- Define the base color palet for wombat
-local lush = require('lush')
+local lush = require("lush")
 local hsl = lush.hsl
 
 local c_step = 20
 
 local M = {
-    italic = "italic",
-    colors = {},
+	italic = "italic",
+	colors = {},
 }
 
 local c = M.colors
@@ -18,7 +18,7 @@ c.green = hsl("#bde97c") -- 256mod #cae982
 c.bright_green = hsl("#95e454")
 c.darkgreen = c.green.darken(c_step)
 c.yellow = hsl("#efdeab")
-c.light_yellow = hsl("#ffffd7")
+c.lightyellow = hsl("#ffffd7")
 c.darkyellow = c.yellow.darken(c_step)
 c.blue = hsl("#6eb9f8") -- 256mod #88b8f6
 c.darkblue = c.blue.darken(c_step)
