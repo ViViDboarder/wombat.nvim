@@ -24,9 +24,9 @@ c.bright_black = hsl("#313131")
 c.bright_red = hsl("#ff786c")
 c.bright_green = hsl("#bde97c") -- 256mod #cae982
 c.bright_yellow = hsl("#ffffd7")
-c.bright_blue = c.blue.brighten(c_step)
-c.bright_magenta = c.magenta.brighten(c_step)
-c.bright_cyan = c.cyan.brighten(c_step)
+c.bright_blue = c.blue.lighten(c_step)
+c.bright_magenta = c.magenta.lighten(c_step)
+c.bright_cyan = c.cyan.lighten(c_step)
 c.bright_white = hsl("#ffffff")
 
 -- Set some fg/bg colors
