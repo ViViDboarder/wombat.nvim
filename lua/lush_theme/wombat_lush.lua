@@ -43,10 +43,8 @@
 --  `:lua require('lush').ify()`
 
 local lush = require("lush")
-local hsl = lush.hsl
 
 local c = require("lush_theme.wombat_lush_colors").colors
-local italic = require("lush_theme.wombat_lush_colors").italic
 local classic = require("lush_theme.wombat_classic")
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -77,9 +75,9 @@ local theme = lush.extends({ classic }).with(function(injected_functions)
 		-- CursorColumn { Cursor }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
 		-- CursorLine   { bg = c.grey_6}, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 		-- Directory    { }, -- directory names (and other special names in listings)
-		DiffAdd({ fg = c.darkgreen.readable(), bg = c.darkgreen }), -- diff mode: Added line |diff.txt|
+		DiffAdd({ fg = c.dark_green.readable(), bg = c.dark_green }), -- diff mode: Added line |diff.txt|
 		DiffChange({ bg = c.violet }), -- diff mode: Changed line |diff.txt|
-		DiffDelete({ fg = c.darkred.readable(), bg = c.darkred }), -- diff mode: Deleted line |diff.txt|
+		DiffDelete({ fg = c.red.readable(), bg = c.red }), -- diff mode: Deleted line |diff.txt|
 		DiffText({ fg = c.magenta.readable(), bg = c.magenta }), -- diff mode: Changed text within a changed line |diff.txt|
 		-- EndOfBuffer  { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
 		-- TermCursor   { }, -- cursor in a focused terminal
@@ -104,7 +102,7 @@ local theme = lush.extends({ classic }).with(function(injected_functions)
 		FloatBorder({ bg = NormalFloat.bg, fg = classic.Pmenu.fg }), -- float border
 		-- NormalNC     { }, -- normal text in non-current windows
 		-- Pmenu        { fg = c.light_yellow, bg = c.grey_5 }, -- Popup menu: normal item.
-		-- PmenuSel     { fg = c.green.readable(), bg = c.green }, -- Popup menu: selected item.
+		-- PmenuSel     { fg = c.bright_green.readable(), bg = c.green }, -- Popup menu: selected item.
 		-- PmenuSbar    { }, -- Popup menu: scrollbar.
 		-- PmenuThumb   { }, -- Popup menu: Thumb of the scrollbar.
 		-- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -123,7 +121,7 @@ local theme = lush.extends({ classic }).with(function(injected_functions)
 		-- Title        { fg = c.light_yellow, gui = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
 		-- Visual       { fg = c.grey_1, bg = c.grey_4 }, -- Visual mode selection
 		-- VisualNOS    { fg = c.grey_1, bg = c.grey_5 }, -- Visual mode selection when vim is "Not Owning the Selection".
-		-- WarningMsg   { fg = c.red }, -- warning messages
+		-- WarningMsg   { fg = c.bright_red }, -- warning messages
 		-- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- WildMenu     { }, -- current match in 'wildmenu' completion
 
@@ -134,10 +132,10 @@ local theme = lush.extends({ classic }).with(function(injected_functions)
 		-- Uncomment and edit if you want more specific syntax highlighting.
 
 		-- Constant       { fg = c.orange }, -- (preferred) any constant
-		-- String         { fg = c.bright_green, gui = italic }, --   a string constant: "this is a string"
+		-- String         { fg = c.green, gui = italic }, --   a string constant: "this is a string"
 		-- Character      { }, --  a character constant: 'c', '\n'
 		-- Number         { fg = c.orange }, --   a number constant: 234, 0xff
-		Boolean({ fg = c.red }), --  a boolean constant: TRUE, false
+		Boolean({ fg = c.bright_red }), --  a boolean constant: TRUE, false
 		Float({ classic.Number }), --    a floating point constant: 2.3e10
 
 		-- Identifier     { classic.Identifier }, -- (preferred) any variable name
@@ -283,8 +281,8 @@ local theme = lush.extends({ classic }).with(function(injected_functions)
 		sym("@text")({ TSText }),
 
 		-- cmp highlights
-		CmpItemAbbrDeprecated({ fg = c.green, gui = "strikethrough" }),
-		CmpItemAbbrMatch({ fg = c.green }),
+		CmpItemAbbrDeprecated({ fg = c.bright_green, gui = "strikethrough" }),
+		CmpItemAbbrMatch({ fg = c.bright_green }),
 		CmpItemAbbrMatchFuzzy({ CmpItemAbbrMatch }),
 		CmpItemKindVariable({ TSVariable }),
 		CmpItemKindInterface({ TSType }),

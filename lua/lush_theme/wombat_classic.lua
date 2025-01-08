@@ -99,8 +99,8 @@ local theme = lush(function()
 		Normal({ bg = c.dark_bg_256mod, fg = c.dark_fg_256mod }), -- normal text
 		-- NormalFloat  { }, -- Normal text in floating windows.
 		-- NormalNC     { }, -- normal text in non-current windows
-		Pmenu({ fg = c.lightyellow, bg = c.grey_5 }), -- Popup menu: normal item.
-		PmenuSel({ fg = c.green.readable(), bg = c.green }), -- Popup menu: selected item.
+		Pmenu({ fg = c.bright_yellow, bg = c.grey_5 }), -- Popup menu: normal item.
+		PmenuSel({ fg = c.bright_green.readable(), bg = c.bright_green }), -- Popup menu: selected item.
 		-- PmenuSbar    { }, -- Popup menu: scrollbar.
 		-- PmenuThumb   { }, -- Popup menu: Thumb of the scrollbar.
 		-- Question     { }, -- |hit-enter| prompt and yes/no questions
@@ -111,15 +111,15 @@ local theme = lush(function()
 		-- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		-- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 		-- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-		StatusLine({ fg = c.lightyellow, bg = c.grey_5, gui = italic }), -- status line of current window
+		StatusLine({ fg = c.bright_yellow, bg = c.grey_5, gui = italic }), -- status line of current window
 		StatusLineNC({ fg = c.grey_2, bg = StatusLine.bg }), -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		-- TabLine      { }, -- tab pages line, not active tab page label
 		-- TabLineFill  { }, -- tab pages line, where there are no labels
 		-- TabLineSel   { }, -- tab pages line, active tab page label
-		Title({ fg = c.lightyellow, gui = "bold" }), -- titles for output from ":set all", ":autocmd" etc.
+		Title({ fg = c.bright_yellow, gui = "bold" }), -- titles for output from ":set all", ":autocmd" etc.
 		Visual({ fg = c.grey_1, bg = c.grey_4 }), -- Visual mode selection
 		VisualNOS({ fg = c.grey_1, bg = c.grey_5 }), -- Visual mode selection when vim is "Not Owning the Selection".
-		WarningMsg({ fg = c.red }), -- warning messages
+		WarningMsg({ fg = c.bright_red }), -- warning messages
 		-- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- WildMenu     { }, -- current match in 'wildmenu' completion
 
@@ -130,14 +130,14 @@ local theme = lush(function()
 		-- Uncomment and edit if you want more specific syntax highlighting.
 
 		Constant({ fg = c.orange }), -- (preferred) any constant
-		String({ fg = c.bright_green, gui = italic }), --   a string constant: "this is a string"
+		String({ fg = c.green, gui = italic }), --   a string constant: "this is a string"
 		-- Character      { }, --  a character constant: 'c', '\n'
 		Number({ fg = c.orange }), --   a number constant: 234, 0xff
 		-- Boolean        { }, --  a boolean constant: TRUE, false
 		-- Float          { }, --    a floating point constant: 2.3e10
 
-		Identifier({ fg = c.green }), -- (preferred) any variable name
-		Function({ fg = c.green }), -- function name (also: methods for classes)
+		Identifier({ fg = c.bright_green }), -- (preferred) any variable name
+		Function({ fg = c.bright_green }), -- function name (also: methods for classes)
 
 		Statement({ fg = c.blue }), -- (preferred) any statement
 		-- Conditional    { }, --  if, then, else, endif, switch, etc.
