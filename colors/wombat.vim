@@ -1,5 +1,5 @@
 " You probably always want to set this in your vim file
-let g:colors_name='wombat_lush'
+let g:colors_name='wombat'
 
 " By setting our module to nil, we clear lua's cache,
 " which means the require ahead will *always* occur.
@@ -16,4 +16,4 @@ let g:colors_name='wombat_lush'
 lua package.loaded['lush_theme.lush_template'] = nil
 
 " include our theme file and pass it to lush to apply
-lua require('lush')(require('lush_theme.wombat_lush').with_ansi("ansi_lush"))
+lua require('lush')(require('lush_theme.wombat_lush').with_ansi("ansi_iterm"))
