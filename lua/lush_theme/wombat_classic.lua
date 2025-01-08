@@ -49,6 +49,8 @@ function M.with_ansi(ansi_colors_name)
 	local hsl = lush.hsl
 
 	local c = require("wombat.colors").from_ansi(ansi_colors_name)
+	-- Import 256mod colors because we always use that background in classic
+	local c256mod = require("wombat.colors").from_ansi("ansi_256mod")
 	local italic = "italic"
 
 	-- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -99,7 +101,7 @@ function M.with_ansi(ansi_colors_name)
 			-- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 			-- MoreMsg      { }, -- |more-prompt|
 			NonText({ LineNr }), -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-			Normal({ bg = c.dark_bg_256mod, fg = c.dark_fg_256mod }), -- normal text
+			Normal({ bg = c256mod.background, fg = c256mod.foreground }), -- normal text
 			-- NormalFloat  { }, -- Normal text in floating windows.
 			-- NormalNC     { }, -- normal text in non-current windows
 			Pmenu({ fg = c.bright_yellow, bg = c.grey_5 }), -- Popup menu: normal item.

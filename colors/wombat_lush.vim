@@ -16,4 +16,4 @@ let g:colors_name='wombat_lush'
 lua package.loaded['lush_theme.lush_template'] = nil
 
 " include our theme file and pass it to lush to apply
-lua require('lush')(require('lush_theme.wombat_lush').with_ansi("ansi_lush"))
+lua require('lush')(require('lush_theme.wombat_lush').with_ansi("ansi_256mod"))
