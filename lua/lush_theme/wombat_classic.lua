@@ -45,8 +45,8 @@
 local lush = require("lush")
 local hsl = lush.hsl
 
-local c = require("lush_theme.wombat_lush_colors").colors
-local italic = require("lush_theme.wombat_lush_colors").italic
+local c = require("wombat.colors").from_ansi("ansi_lush")
+local italic = "italic"
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.

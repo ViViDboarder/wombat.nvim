@@ -44,7 +44,7 @@
 
 local lush = require("lush")
 
-local c = require("lush_theme.wombat_lush_colors").colors
+local c = require("wombat.colors").from_ansi("ansi_lush")
 local classic = require("lush_theme.wombat_classic")
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
