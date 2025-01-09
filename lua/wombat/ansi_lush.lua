@@ -1,37 +1,34 @@
--- Define the base color palet for wombat
+-- Define the base color pallet for wombat
 local lush = require("lush")
 local hsl = lush.hsl
 
 local c_step = 20
 
-local M = {}
+return {
+	black = hsl("#000000"),
+	red = hsl("#ff786c").darken(c_step),
+	green = hsl("#95e454"),
+	yellow = hsl("#efdeab"),
+	blue = hsl("#6eb9f8"),
+	magenta = hsl("#ee87ff"),
+	cyan = hsl("#90fdf8"),
+	white = hsl("#e4e0d7"),
 
-M.black = hsl("#000000")
-M.red = hsl("#ff786c").darken(c_step)
-M.green = hsl("#95e454")
-M.yellow = hsl("#efdeab")
-M.blue = hsl("#6eb9f8") -- 256mod #88b8f6
-M.magenta = hsl("#ee87ff")
-M.cyan = hsl("#90fdf8")
-M.white = hsl("#e4e0d7")
+	bright_black = hsl("#313131"),
+	bright_red = hsl("#ff786c"),
+	bright_green = hsl("#bde97c"),
+	bright_yellow = hsl("#ffffd7"),
+	bright_blue = hsl("#6eb9f8").lighten(c_step),
+	bright_magenta = hsl("#ee87ff").lighten(c_step),
+	bright_cyan = hsl("#90fdf8").lighten(c_step),
+	bright_white = hsl("#ffffff"),
 
-M.bright_black = hsl("#313131")
-M.bright_red = hsl("#ff786c")
-M.bright_green = hsl("#bde97c") -- 256mod #cae982
-M.bright_yellow = hsl("#ffffd7")
-M.bright_blue = M.blue.lighten(c_step)
-M.bright_magenta = M.magenta.lighten(c_step)
-M.bright_cyan = M.cyan.lighten(c_step)
-M.bright_white = hsl("#ffffff")
+	foreground = hsl("#e4e0d7"),
+	background = hsl("#1e1e1e"),
 
--- Set some fg/bg colors
-M.foreground = hsl("#e4e0d7")
-M.background = hsl("#1e1e1e")
+	cursor = hsl("#bbbbbb"),
+	cursor_text = hsl("#ffffff"),
 
-M.cursor = hsl("#bbbbbb")
-M.cursor_text = hsl("#ffffff")
-
-M.selection_background = hsl("#574b49")
-M.selection_foreground = hsl("#c3c6ca")
-
-return M
+	selection_background = hsl("#574b49"),
+	selection_foreground = hsl("#c3c6ca"),
+}

@@ -1,4 +1,4 @@
--- Define the base color palet for wombat
+-- Define the base color pallet for wombat extending from ansi colors
 local M = {}
 
 function M.from_ansi(ansi_colors_name)
@@ -7,7 +7,7 @@ function M.from_ansi(ansi_colors_name)
 
 	local c_step = 20
 
-	local ansi_colors = require("wombat." .. ansi_colors_name)
+	local ansi_colors = require("wombat.ansi_" .. ansi_colors_name)
 	local c = ansi_colors
 
 	-- Add dark color variants not in pallet

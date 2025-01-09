@@ -42,7 +42,9 @@
 --
 --  `:lua require('lush').ify()`
 
-local M = {}
+local M = {
+	default_ansi_colors_name = "lush",
+}
 
 function M.with_ansi(ansi_colors_name)
 	local lush = require("lush")

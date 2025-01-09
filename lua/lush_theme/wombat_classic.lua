@@ -42,7 +42,9 @@
 --
 --  `:lua require('lush').ify()`
 
-local M = {}
+local M = {
+	default_ansi_colors_name = "256mod",
+}
 
 function M.with_ansi(ansi_colors_name)
 	local lush = require("lush")
@@ -50,7 +52,7 @@ function M.with_ansi(ansi_colors_name)
 
 	local c = require("wombat.colors").from_ansi(ansi_colors_name)
 	-- Import 256mod colors because we always use that background in classic
-	local c256mod = require("wombat.colors").from_ansi("ansi_256mod")
+	local c256mod = require("wombat.colors").from_ansi("256mod")
 	local italic = "italic"
 
 	-- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
