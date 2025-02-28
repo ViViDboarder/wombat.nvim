@@ -169,7 +169,10 @@ function M.with_ansi(ansi_colors_name)
 			-- Error          { }, -- (preferred) any erroneous construct
 			-- Todo(classic.Todo), -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-			-- Todo           { fg = c.grey_3, gui = italic }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+			DiagnosticError({ fg = c.dark_orange }),
+			DiagnosticWarn({ fg = c.dark_yellow }),
+			DiagnosticInfo({ fg = c.dark_green }),
+			DiagnosticHint({ fg = c.dark_blue }),
 
 			-- These groups are for the native LSP client. Some other LSP clients may
 			-- use these groups, or use their own. Consult your LSP client's
