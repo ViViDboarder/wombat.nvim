@@ -187,8 +187,8 @@ function M.with_ansi(ansi_colors_name)
 			-- LspDiagnosticsDefaultInformation     { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 			-- LspDiagnosticsDefaultHint            { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
 
-			-- LspDiagnosticsVirtualTextError       { }, -- Used for "Error" diagnostic virtual text
-			-- LspDiagnosticsVirtualTextWarning     { }, -- Used for "Warning" diagnostic virtual text
+			-- LspDiagnosticsVirtualTextError({}), -- Used for "Error" diagnostic virtual text
+			-- LspDiagnosticsVirtualTextWarning({}), -- Used for "Warning" diagnostic virtual text
 			-- LspDiagnosticsVirtualTextInformation { }, -- Used for "Information" diagnostic virtual text
 			-- LspDiagnosticsVirtualTextHint        { }, -- Used for "Hint" diagnostic virtual text
 
@@ -287,7 +287,94 @@ function M.with_ansi(ansi_colors_name)
 			CmpItemKindMethod({ TSMethod }),
 			CmpItemKindKeyword({ TSKeyword }),
 			CmpItemKindProperty({ TSProperty }),
-			-- CmpItemKindUnit         { Normal },
+			CmpItemKindUnit({ Normal }),
+
+			-- lualine
+			lualine_a_command({ bg = c.green, fg = c.grey_5, gui = "bold" }), -- lualine_a_visual xxx gui=bold guifg=#444444 guibg=#f2c68a
+			lualine_a_inactive({ bg = c.grey_5, fg = c.white, gui = "bold" }), -- lualine_a_inactive xxx gui=bold guifg=#969696 guibg=#444444
+			lualine_a_insert({ bg = c.blue, fg = c.grey_5, gui = "bold" }), -- lualine_a_insert xxx gui=bold guifg=#444444 guibg=#95e454
+			lualine_a_normal({ bg = c.green, fg = c.grey_5, gui = "bold" }), -- lualine_a_normal xxx gui=bold guifg=#444444 guibg=#8ac6f2
+			lualine_a_replace({ bg = c.orange, fg = "#353535", gui = "bold" }), -- lualine_a_replace xxx gui=bold guifg=#353535 guibg=#e5786d
+			lualine_a_terminal({ bg = c.green, fg = "#353535", gui = "bold" }), -- lualine_a_replace xxx gui=bold guifg=#353535 guibg=#e5786d
+			lualine_a_visual({ bg = c.dark_yellow, fg = c.grey_5, gui = "bold" }), -- lualine_a_visual xxx gui=bold guifg=#444444 guibg=#f2c68a
+
+			lualine_b_diff_added_command({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_command xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_added_inactive({ bg = "#585858", fg = "#000000" }), -- lualine_b_diff_added_inactive xxx guifg=#000000 guibg=#585858
+			lualine_b_diff_added_insert({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_insert xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_added_normal({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_normal xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_added_replace({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_replace xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_added_terminal({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_terminal xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_added_visual({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_added_visual xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_modified_command({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_command xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_modified_inactive({ bg = "#585858", fg = "#f0e130" }), -- lualine_b_diff_modified_inactive xxx guifg=#f0e130 guibg=#585858
+			lualine_b_diff_modified_insert({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_insert xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_modified_normal({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_normal xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_modified_replace({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_replace xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_modified_terminal({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_terminal xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_modified_visual({ bg = "#808080", fg = "#f0e130" }), -- lualine_b_diff_modified_visual xxx guifg=#f0e130 guibg=#808080
+			lualine_b_diff_removed_command({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_command xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_removed_inactive({ bg = "#585858", fg = "#000000" }), -- lualine_b_diff_removed_inactive xxx guifg=#000000 guibg=#585858
+			lualine_b_diff_removed_insert({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_insert xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_removed_normal({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_normal xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_removed_replace({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_replace xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_removed_terminal({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_terminal xxx guifg=#000000 guibg=#808080
+			lualine_b_diff_removed_visual({ bg = "#808080", fg = "#000000" }), -- lualine_b_diff_removed_visual xxx guifg=#000000 guibg=#808080
+			lualine_b_inactive({ bg = "#585858", fg = "#353535" }), -- lualine_b_inactive xxx guifg=#353535 guibg=#585858
+			lualine_b_normal({ bg = "#808080", fg = "#444444" }), -- lualine_b_normal xxx guifg=#444444 guibg=#808080
+
+			lualine_c_inactive({ bg = "#353535", fg = "#969696" }), -- lualine_c_inactive xxx guifg=#969696 guibg=#353535
+			lualine_c_normal({ bg = "#444444", fg = "#a8a8a8" }), -- lualine_c_normal xxx guifg=#a8a8a8 guibg=#444444
+
+			lualine_z({ bg = c.red, fg = c.grey_5 }),
+			lualine_z_12_command(lualine_z), -- lualine_z_12_command xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_12_inactive(lualine_z), -- lualine_z_12_inactive xxx guifg=#969696 guibg=#de4f1f
+			lualine_z_12_insert(lualine_z), -- lualine_z_12_insert xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_12_normal(lualine_z), -- lualine_z_12_normal xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_12_replace(lualine_z), -- lualine_z_12_replace xxx guifg=#353535 guibg=#de4f1f
+			lualine_z_12_terminal(lualine_z), -- lualine_z_12_terminal xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_12_visual(lualine_z), -- lualine_z_12_visual xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_13_command(lualine_z), -- lualine_z_13_command xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_13_inactive(lualine_z), -- lualine_z_13_inactive xxx guifg=#969696 guibg=#de4f1f
+			lualine_z_13_insert(lualine_z), -- lualine_z_13_insert xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_13_normal(lualine_z), -- lualine_z_13_normal xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_13_replace(lualine_z), -- lualine_z_13_replace xxx guifg=#353535 guibg=#de4f1f
+			lualine_z_13_terminal(lualine_z), -- lualine_z_13_terminal xxx guifg=#444444 guibg=#de4f1f
+			lualine_z_13_visual(lualine_z), -- lualine_z_13_visual xxx guifg=#444444 guibg=#de4f1f
+
+			lualine_z_diagnostics_error_command({ bg = lualine_a_command.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_command xxx guifg=#590008 guibg=#8ac6f2
+			lualine_z_diagnostics_error_inactive({ bg = lualine_a_inactive.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_inactive xxx guifg=#590008 guibg=#444444
+			lualine_z_diagnostics_error_insert({ bg = lualine_a_insert.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_insert xxx guifg=#590008 guibg=#95e454
+			lualine_z_diagnostics_error_normal({ bg = lualine_a_normal.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_normal xxx guifg=#590008 guibg=#8ac6f2
+			lualine_z_diagnostics_error_replace({ bg = lualine_a_replace.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_replace xxx guifg=#590008 guibg=#e5786d
+			lualine_z_diagnostics_error_terminal({ bg = lualine_a_terminal.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_terminal xxx guifg=#590008 guibg=#8ac6f2
+			lualine_z_diagnostics_error_visual({ bg = lualine_a_visual.bg, fg = "#590008" }), -- lualine_z_diagnostics_error_visual xxx guifg=#590008 guibg=#f2c68a
+
+			lualine_z_diagnostics_hint_command({ bg = "#8ac6f2", fg = "#004c73" }), -- lualine_z_diagnostics_hint_command xxx guifg=#004c73 guibg=#8ac6f2
+			lualine_z_diagnostics_hint_inactive({ bg = "#444444", fg = "#004c73" }), -- lualine_z_diagnostics_hint_inactive xxx guifg=#004c73 guibg=#444444
+			lualine_z_diagnostics_hint_insert({ bg = "#95e454", fg = "#004c73" }), -- lualine_z_diagnostics_hint_insert xxx guifg=#004c73 guibg=#95e454
+			lualine_z_diagnostics_hint_normal({ bg = "#8ac6f2", fg = "#004c73" }), -- lualine_z_diagnostics_hint_normal xxx guifg=#004c73 guibg=#8ac6f2
+			lualine_z_diagnostics_hint_replace({ bg = "#e5786d", fg = "#004c73" }), -- lualine_z_diagnostics_hint_replace xxx guifg=#004c73 guibg=#e5786d
+			lualine_z_diagnostics_hint_terminal({ bg = "#8ac6f2", fg = "#004c73" }), -- lualine_z_diagnostics_hint_terminal xxx guifg=#004c73 guibg=#8ac6f2
+			lualine_z_diagnostics_hint_visual({ bg = "#f2c68a", fg = "#004c73" }), -- lualine_z_diagnostics_hint_visual xxx guifg=#004c73 guibg=#f2c68a
+			lualine_z_diagnostics_info_command({ bg = "#8ac6f2", fg = "#007373" }), -- lualine_z_diagnostics_info_command xxx guifg=#007373 guibg=#8ac6f2
+			lualine_z_diagnostics_info_inactive({ bg = "#444444", fg = "#007373" }), -- lualine_z_diagnostics_info_inactive xxx guifg=#007373 guibg=#444444
+			lualine_z_diagnostics_info_insert({ bg = "#95e454", fg = "#007373" }), -- lualine_z_diagnostics_info_insert xxx guifg=#007373 guibg=#95e454
+			lualine_z_diagnostics_info_normal({ bg = "#8ac6f2", fg = "#007373" }), -- lualine_z_diagnostics_info_normal xxx guifg=#007373 guibg=#8ac6f2
+			lualine_z_diagnostics_info_replace({ bg = "#e5786d", fg = "#007373" }), -- lualine_z_diagnostics_info_replace xxx guifg=#007373 guibg=#e5786d
+			lualine_z_diagnostics_info_terminal({ bg = "#8ac6f2", fg = "#007373" }), -- lualine_z_diagnostics_info_terminal xxx guifg=#007373 guibg=#8ac6f2
+			lualine_z_diagnostics_info_visual({ bg = "#f2c68a", fg = "#007373" }), -- lualine_z_diagnostics_info_visual xxx guifg=#007373 guibg=#f2c68a
+			lualine_z_diagnostics_warn_command({ bg = "#8ac6f2", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_command xxx guifg=#6b5300 guibg=#8ac6f2
+			lualine_z_diagnostics_warn_inactive({ bg = "#444444", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_inactive xxx guifg=#6b5300 guibg=#444444
+			lualine_z_diagnostics_warn_insert({ bg = "#95e454", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_insert xxx guifg=#6b5300 guibg=#95e454
+			lualine_z_diagnostics_warn_normal({ bg = "#8ac6f2", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_normal xxx guifg=#6b5300 guibg=#8ac6f2
+			lualine_z_diagnostics_warn_replace({ bg = "#e5786d", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_replace xxx guifg=#6b5300 guibg=#e5786d
+			lualine_z_diagnostics_warn_terminal({ bg = "#8ac6f2", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_terminal xxx guifg=#6b5300 guibg=#8ac6f2
+			lualine_z_diagnostics_warn_visual({ bg = "#f2c68a", fg = "#6b5300" }), -- lualine_z_diagnostics_warn_visual xxx guifg=#6b5300 guibg=#f2c68a
+
+			-- Indent Blank Line (ibl)
+			IblIndent({ fg = c.grey_4 }), -- Highlight for indentation characters
+			IblWhitespace({ IblIndent }), -- Highlight for whitespace characters
+			IblScope({ fg = c.dark_orange }), -- Highlight for scope characters
 		}
 	end)
 
