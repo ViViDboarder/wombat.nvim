@@ -21,13 +21,16 @@ A slight departure from the wombat256mod colorscheme, but with extended support 
 
 ## Installation
 
-### With Packer
+### With vim.pack
 
 ```lua
-use {
-    "ViViDboarder/wombat.nvim",
-    requires = "rktjmp/lush.nvim",
-}
+vim.pack.add({
+    "https://github.com/ViViDboarder/wombat.nvim",
+    "https://github.com/rktjmp/lush.nvim",
+})
+-- You can optionally specify the name of the ansi colors you wish to use
+-- This defaults to nil and will use the default ansi colors for the theme
+vim.g.ansi_colors_name = nil
 ```
 
 ### With lazy.nvim
