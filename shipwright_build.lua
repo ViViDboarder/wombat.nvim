@@ -1,7 +1,5 @@
 local lushwright = require("shipwright.transform.lush")
 
--- print(vim.inspect(wombat_classic_256mod))
-
 local function build_colorscheme(theme_name, module_name, ansi_name)
 	local theme_module = require("lush_theme." .. module_name).with_ansi(ansi_name)
 	run(
@@ -16,7 +14,7 @@ local function build_colorscheme(theme_name, module_name, ansi_name)
 	)
 end
 
+build_colorscheme("wombat", "wombat_lush", "iterm2")
 build_colorscheme("wombat_classic", "wombat_classic", "256mod")
 build_colorscheme("wombat_iterm2", "wombat_lush", "iterm2")
 build_colorscheme("wombat_ghostty", "wombat_lush", "ghostty")
-build_colorscheme("wombat_lush", "wombat_lush", "256mod")
