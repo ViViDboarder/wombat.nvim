@@ -17,7 +17,6 @@ local function build_colorscheme(theme_name, module_name, ansi_name)
 end
 
 build_colorscheme("wombat_classic", "wombat_classic", "256mod")
-build_colorscheme("wombat", "wombat_lush", "iterm2")
 build_colorscheme("wombat_iterm2", "wombat_lush", "iterm2")
 build_colorscheme("wombat_ghostty", "wombat_lush", "ghostty")
 build_colorscheme("wombat_lush", "wombat_lush", "256mod")
