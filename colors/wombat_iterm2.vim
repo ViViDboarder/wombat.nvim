@@ -154,4 +154,4 @@ highlight lualine_z_diagnostics_warn_replace guifg=#6b5300 guibg=#e5786d guisp=N
 highlight lualine_z_diagnostics_warn_terminal guifg=#6b5300 guibg=#8ac6f2 guisp=NONE blend=NONE gui=NONE
 highlight lualine_z_diagnostics_warn_visual guifg=#6b5300 guibg=#f2c68a guisp=NONE blend=NONE gui=NONE
 set background=dark
-let g:colors_name="wombat"
+let g:colors_name="wombat_iterm2"

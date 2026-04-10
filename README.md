@@ -9,19 +9,38 @@ Created with [Lush](http://git.io/lush.nvim)
 
 ### wombat
 
-A colorscheme based on the iTerm2 Wombat colorscheme with support for newer Neovim highlights.
+A compiled colorscheme based on the iTerm2 Wombat colorscheme with support for newer Neovim highlights.
+
+### wombat_iterm2
+
+A duplicate of wombat specifying the ansi colors
+
+### wombat_ghostty
+
+A compiled colorscheme based on the Ghostty Wombat colorscheme with support for newer Neovim highlights.
 
 ### wombat_classic
 
-A colorscheme based on the original wombat256mod colorscheme. This does not have highlights for newer Neovim features.
+A compiled colorscheme based on the original wombat256mod colorscheme. This does not have highlights for newer Neovim features.
 
 ### wombat_lush
 
-A slight departure from the wombat256mod colorscheme, but with extended support for newer Neovim features.
+A slight departure from the wombat256mod colorscheme, but with extended support for newer Neovim features. This is a lua based theme that is dynamically generated. It will allow custom ansi colors as described below in the configuration section.
 
 ## Installation
 
 ### With vim.pack
+
+If you are using a compiled theme, you need no dependencies or configuration.
+
+```lua
+vim.pack.add({
+    "https://github.com/ViViDboarder/wombat.nvim",
+})
+colorscheme wombat
+```
+
+If you want to dynamically set ansi colors, you use the example below.
 
 ```lua
 vim.pack.add({
@@ -31,6 +50,7 @@ vim.pack.add({
 -- You can optionally specify the name of the ansi colors you wish to use
 -- This defaults to nil and will use the default ansi colors for the theme
 vim.g.wombat_ansi_colors_name = nil
+vim.cmd("colorscheme wombat_lush")
 ```
 
 ### With lazy.nvim
@@ -38,7 +58,7 @@ vim.g.wombat_ansi_colors_name = nil
 ```lua
 {
     "ViViDboarder/wombat.nvim",
-    dependencies = { { "rktjmp/lush.nvim" } },
+    dependencies = { { "rktjmp/lush.nvim" } }, -- optional. Only required for wombat_lush and dynamic ansi colors
     opts = {
         -- You can optionally specify the name of the ansi colors you wish to use
         -- This defaults to nil and will use the default ansi colors for the theme
@@ -49,7 +69,9 @@ vim.g.wombat_ansi_colors_name = nil
 
 ## Configuration
 
-You can overide the base ANSI color schemes to match your terminal by selecting an alternative scheme when setting up the module.
+If you are not using dynamic ansi colors, there is no configuration necessary. If you choose to use dynamic colors, you must have lush.nvim installed (see installation above).
+
+You can overide the base ANSI color schemes to match your terminal by selecting an alternative scheme when setting up the module or by setting `vim.g.wombat_ansi_colors_name`.
 
 ```lua
 require('wombat').setup({
@@ -73,4 +95,4 @@ If you are using a terminal colorsceme based on Wombat and would like your color
 
 You can then set this as the default ansi colors by setting the `ansi_colors_name` in the setup function shown above.
 
-If you want to be able to set this via `:colorscheme`, you can create a new colorscheme file similar to `colors/wombat.vim`, but reference the new file name instead of `iterm2`.
+If you want to be able to set this via `:colorscheme`, you can create a new colorscheme file similar to `colors/wombat_lush.lua`, but reference the new file name instead of `lush`.
